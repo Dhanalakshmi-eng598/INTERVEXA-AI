@@ -1,0 +1,19 @@
+
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+.streamlit/secrets.toml
+.vercel/
+.DS_Store
+# Node.js
+node_modules/
+
+# VS Code settings
+.vscode/

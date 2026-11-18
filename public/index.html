@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Technical Interviewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- LEFT: history sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="side-head">
+        <div class="brand">🤖 <span>InterviewAI</span></div>
+        <button id="newBtn" class="primary full" type="button">＋ New interview</button>
+      </div>
+      <div class="side-title">History</div>
+      <div id="historyList" class="history-list"></div>
+      <div class="side-foot">
+        <button id="clearBtn" class="ghost small" type="button">Clear all history</button>
+      </div>
+    </aside>
+    <div id="backdrop" class="backdrop hidden"></div>
+
+    <!-- RIGHT: main area -->
+    <section class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="ghost menu-btn" type="button" aria-label="Open history">☰</button>
+        <div class="title-wrap">
+          <div id="titleMain" class="title-main">New interview</div>
+          <div id="titleSub" class="title-sub"></div>
+        </div>
+        <div class="top-right">
+          <span id="progressBadge" class="badge hidden"></span>
+          <span id="timer" class="timer hidden">00:00</span>
+          <button id="endBtn" class="ghost small hidden" type="button">End &amp; get report</button>
+        </div>
+      </header>
+      <div id="progress" class="progress hidden"><div id="progressBar"></div></div>
+
+      <div id="scroll" class="scroll">
+        <!-- Setup form -->
+        <div id="setup" class="setup">
+          <div class="card">
+            <h1>Practice a real technical interview</h1>
+            <p class="muted">The AI adapts every question to your target role and how well you answer.</p>
+            <form id="setupForm">
+              <label>Your name
+                <input id="name" placeholder="e.g. Priya" required />
+              </label>
+              <label>Target job role
+                <input id="role" placeholder="e.g. Backend Engineer, Data Scientist, DevOps" required />
+              </label>
+              <div class="row-2">
+                <label>Seniority
+                  <select id="level">
+                    <option>Intern / Fresher</option>
+                    <option selected>Junior</option>
+                    <option>Mid-level</option>
+                    <option>Senior</option>
+                    <option>Staff / Lead</option>
+                  </select>
+                </label>
+                <label>Questions
+                  <input id="numQuestions" type="number" min="3" max="15" value="6" />
+                </label>
+              </div>
+              <label>Focus areas (optional)
+                <input id="focus" placeholder="e.g. Node.js, system design, SQL" />
+              </label>
+              <button class="primary" type="submit">Start interview</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Chat messages -->
+        <div id="chat" class="chat hidden"></div>
+      </div>
+
+      <!-- Answer box (bottom) -->
+      <footer id="composer" class="composer hidden">
+        <div class="composer-inner">
+          <textarea id="answer" rows="2" placeholder="Type your answer...  (Enter = send, Shift+Enter = new line)"></textarea>
+          <button id="micBtn" class="ghost" type="button" title="Dictate your answer">🎤</button>
+          <button id="sendBtn" class="primary" type="button">Send ➤</button>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
